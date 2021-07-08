@@ -1,16 +1,16 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <AutoCompleteApp msg="Welcome to Vue.js Chrome extension demo for auto completion" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import AutoCompleteApp from "./components/AutoCompleteApp.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    HelloWorld,
+    AutoCompleteApp,
   },
 });
 </script>
