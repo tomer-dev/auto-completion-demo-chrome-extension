@@ -31,5 +31,7 @@ And other untested lucky websites..
   ----
   
   Expect auto completion at 40% and a completion using the TAB key at 50%.
+  
   Completion proposal: "Do you have time" = 40%.
+  
   Completion using the Tab key: "Do you have time to" = 50%.
