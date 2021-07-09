@@ -4,7 +4,7 @@ import { Constants } from "../constants";
 export function dangerouslyAppendAutoCompleteInputLayer() {
   document
     .querySelectorAll("input[type=text]")
-    .forEach(addAutoCompleteInputLayerA);
+    .forEach(addAutoCompleteInputLayer);
 }
 
 export function normalizeInputIds() {
@@ -54,11 +54,13 @@ function onInputChangeEvent(input) {
   if (!extraInput) return;
   extraInput.style.width =
     (input.getBoundingClientRect().width ?? extraInput.style.width) + "px";
-  extraInput.value = hasMatch ? sentence : "";
+  extraInput.innerText = hasMatch ? sentence : "";
 }
 
-function addAutoCompleteInputLayerA(input) {
+function addAutoCompleteInputLayer(input) {
   input.parentElement.style.position = "relative";
+  input.style.direction = 'ltr';
+  input.style.textAlign = "left";
   if (!input.id) input.id = generateId();
 
   const layeredInput = createLayeredInput(input);
@@ -70,15 +72,15 @@ function addAutoCompleteInputLayerA(input) {
 }
 
 function createLayeredInput(input) {
-  const layeredInput = input.cloneNode(true);
-
+  const layeredInput = document.createElement('div');
+  layeredInput.className = input.className;
   layeredInput.id = input.id + Constants.inputLayerSuffix;
-  layeredInput.value = "";
+  layeredInput.innerText = "";
+  layeredInput.style.direction = 'ltr';
+  layeredInput.style.textAlign = "left";
   layeredInput.style.color = Constants.placeholderColor;
   layeredInput.style.zIndex = getWebsiteSpecificZIndex();
   layeredInput.style.position = "absolute";
-  layeredInput.placeholder = "";
-  layeredInput.readOnly = true;
   layeredInput.style.left =
     input.getBoundingClientRect().left -
     input.parentElement.getBoundingClientRect().left +
