@@ -4,5 +4,5 @@ export function generateId() {
 }
 
 export function getWebsiteSpecificZIndex(){
-  return window.location.hostname === 'www.google.com' ? 0 : -1;
+  return window.location.hostname.startsWith("www.google.") ? 0 : -1;
 }
