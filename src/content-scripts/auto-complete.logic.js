@@ -76,8 +76,9 @@ function createLayeredInput(input) {
   layeredInput.className = input.className;
   layeredInput.id = input.id + Constants.inputLayerSuffix;
   layeredInput.innerText = "";
-  layeredInput.style.direction = 'ltr';
+  layeredInput.style.direction = "ltr";
   layeredInput.style.textAlign = "left";
+  layeredInput.style.alignItems = "center";
   layeredInput.style.color = Constants.placeholderColor;
   layeredInput.style.zIndex = getWebsiteSpecificZIndex();
   layeredInput.style.position = "absolute";
